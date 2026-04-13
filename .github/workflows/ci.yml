@@ -1,0 +1,32 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Run Basic Checks
+      run: |
+        echo "Checking files..."
+        if [ ! -f index.html ]; then
+          echo "index.html not found!"
+          exit 1
+        fi
+        if [ ! -f styles/style.css ]; then
+          echo "CSS file missing!"
+          exit 1
+        fi
+        echo "All files exist!"
+
+    - name: Build Step
+      run: echo "Build successful"
