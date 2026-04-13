@@ -22,7 +22,7 @@ jobs:
           echo "index.html not found!"
           exit 1
         fi
-        if [ ! -f styles/style.css ]; then
+        if [ ! -f css/style.css ]; then
           echo "CSS file missing!"
           exit 1
         fi
